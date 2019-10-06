@@ -1296,4 +1296,14 @@ class User_Command extends CommandWithDBObject {
 		}
 	}
 
+	/**
+	 * Is Valid assoc_arg field?
+	 *
+	 * @param string $field_name Field name to check.
+	 * @return bool Field is valid.
+	 */
+	protected function is_valid_assoc_arg_field( $field_name ) {
+		return in_array( $field_name, $this->assoc_arg_fields, true );
+	}
+
 }
