@@ -529,6 +529,11 @@ class User_Command extends CommandWithDBObject {
 			WP_CLI::warning( "User logins can't be changed." );
 			unset( $assoc_args['user_login'] );
 		}
+		foreach ( $assoc_args as $field_name => $value ) {
+			if ( ! $this->is_valid_assoc_arg_field( $field_name ) ) {
+				WP_CLI::warning( "Invalid Field: {$field_name}." );
+			}
+		}
 
 		$user_ids = [];
 		foreach ( $this->fetcher->get_many( $args ) as $user ) {
