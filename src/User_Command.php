@@ -36,14 +36,34 @@ use WP_CLI\Utils;
  */
 class User_Command extends CommandWithDBObject {
 
-	protected $obj_type   = 'user';
-	protected $obj_fields = [
+	protected $obj_type         = 'user';
+	protected $obj_fields       = [
 		'ID',
 		'user_login',
 		'display_name',
 		'user_email',
 		'user_registered',
 		'roles',
+	];
+	protected $assoc_arg_fields = [
+		'user_pass',
+		'user_nicename',
+		'user_url',
+		'user_email',
+		'display_name',
+		'nickname',
+		'first_name',
+		'last_name',
+		'description',
+		'rich_editing',
+		'user_registered',
+		'role',
+		'syntax_highlighting',
+		'comment_shortcuts',
+		'admin_color',
+		'use_ssl',
+		'show_admin_bar_front',
+		'locale',
 	];
 
 	private $cap_fields = [
