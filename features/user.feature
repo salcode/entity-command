@@ -460,3 +460,9 @@ Feature: Manage WordPress users
       Success: Updated user 1.
       """
     And an email should not be sent
+
+    When I run `wp user update 1 --upaswrd=p4ssw0rd`
+    Then STDOUT should contain:
+      """
+      Warning: Invalid Field: upaswrd.
+      """
